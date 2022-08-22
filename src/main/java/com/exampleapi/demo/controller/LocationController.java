@@ -36,12 +36,12 @@ public class LocationController {
 	{ 
 		return locationService.listLocation();
 	}
-	@PostMapping ("/update/{locationId}")
-	public String updateLocation(@PathVariable ("locationId") int locationId,@RequestBody Location location )
+	@PostMapping ("/update/{locationCode}")
+	public String updateLocation(@PathVariable ("locationCode") String locationCode,@RequestBody Location location )
 	{ 
-		System.out.println("locaationID:"+locationId);
-		 locationService.editLocation(locationId,location);
-		 return "Just a test";
+		System.out.println("locaationID:"+locationCode);
+		 boolean t =locationService.editByLocationCode(locationCode,location);
+		 return "ok";
 		
 	}
 	@PostMapping ("/update/byCode")
